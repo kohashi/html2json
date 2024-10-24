@@ -1,18 +1,15 @@
-if (typeof window === 'undefined') {
-  json2html = require('../index').json2html;
-  html2json = require('../index').html2json;
-}
+import { json2html, html2json } from '../index';
 
 if (typeof console.time === 'undefined') {
-  console.time = function(tag) {
+  console.time = function(tag: string) {
     this[tag] = Date.now();
   };
-  console.timeEnd = function(tag) {
+  console.timeEnd = function(tag: string) {
     console.log(tag, Date.now() - this[tag], 'ms');
   };
 }
 
-var json = {
+const json = {
   tag: 'div',
   attr: {
     id: '1',
@@ -47,22 +44,23 @@ var json = {
     }
   ]
 };
+
 console.time('json2html');
-for (var i = 0; i < 1000; i++) {
+for (let i = 0; i < 1000; i++) {
   json2html(json);
 }
 console.timeEnd('json2html');
 
-var html = ''
+const html = ''
   + '<div id="1" class="foo">'
-  + '<h2>sample text with <code>inline tag</code></h2>'
+  + '<h2>sample text with <code>inline tag</h2>'
   + '<pre id="demo" class="foo bar"></pre>'
   + '<pre id="output" class="goo"></pre>'
   + '<input id="execute" type="button" value="execute"/>'
   + '</div>';
 
 console.time('html2json');
-for (var j = 0; j < 1000; j++) {
+for (let j = 0; j < 1000; j++) {
   html2json(html);
 }
 console.timeEnd('html2json');

@@ -2,13 +2,14 @@
   "name": "html2json",
   "version": "1.0.2",
   "description": "html to json & json to html",
-  "main": "index.js",
+  "main": "index.ts",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "mocha",
-    "lint": "eslint -c .eslintrc.js src test bench"
+    "lint": "eslint -c .eslintrc.js src test bench",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
   "homepage": "https://github.com/jxck/html2json#readme",
   "devDependencies": {
     "eslint": "^2.6.0",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "typescript": "^4.0.0"
   }
 }
